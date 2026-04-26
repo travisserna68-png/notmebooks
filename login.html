@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Author Login | Travis Serna</title>
+    <meta
+      name="description"
+      content="Author login handoff page for the Travis Serna site CMS."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">TRAVIS SERNA</div>
+      <nav class="site-nav">
+        <a href="index.html#book">The Book</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#author">The Author</a>
+        <a href="admin/">Login</a>
+      </nav>
+    </header>
+
+    <main class="post-shell">
+      <div class="post-wrap">
+        <section class="post-hero">
+          <p class="post-meta">Author Access</p>
+          <h1>Author login lives in /admin/</h1>
+          <p class="post-dek">
+            This site is now prepared for Netlify and Decap CMS. Use the admin
+            area after publishing to log in and manage blog posts.
+          </p>
+        </section>
+
+        <div class="post-layout">
+          <article class="post-body">
+            <p>
+              Your working login destination is the CMS admin route at
+              <code>/admin/</code>. Once the site is deployed on Netlify and
+              Netlify Identity plus Git Gateway are enabled, you will be able to
+              sign in there and create or edit blog posts.
+            </p>
+            <p>
+              This page now acts as a handoff so older links do not feel broken
+              while the hosted admin is being connected.
+            </p>
+            <p>
+              After deployment, the cleanest login URL to remember will be
+              <code>/admin/</code>.
+            </p>
+            <a class="button button-primary" href="admin/">Go to Admin</a>
+          </article>
+
+          <aside class="post-aside">
+            <h3>Netlify Checklist</h3>
+            <ul>
+              <li>Publish the site to your hosting provider</li>
+              <li>Enable Netlify Identity</li>
+              <li>Enable Git Gateway</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

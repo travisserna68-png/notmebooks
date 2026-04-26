@@ -1,0 +1,8 @@
+{
+  "name": "travis-serna-author-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/build-blog.mjs"
+  }
+}

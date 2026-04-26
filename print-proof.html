@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travis Serna Website Proof</title>
+    <style>
+      :root {
+        --ink: #1c2430;
+        --muted: #5b6573;
+        --line: #d7dce3;
+        --accent: #c78812;
+        --paper: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f2f4f7;
+        color: var(--ink);
+        font-family: "Georgia", "Times New Roman", serif;
+      }
+
+      .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 0.6in;
+        background: var(--paper);
+      }
+
+      .proof-header {
+        margin-bottom: 0.35in;
+        padding-bottom: 0.18in;
+        border-bottom: 2px solid var(--line);
+      }
+
+      .proof-header h1,
+      .section h2,
+      .book-copy h3 {
+        margin: 0;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .proof-header h1 {
+        font-size: 26pt;
+      }
+
+      .proof-header p,
+      .meta,
+      .section p,
+      li {
+        color: var(--muted);
+        line-height: 1.45;
+        font-size: 11pt;
+      }
+
+      .meta {
+        margin-top: 0.08in;
+      }
+
+      .hero-proof,
+      .book-proof,
+      .coming-soon-proof {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 0.3in;
+        align-items: start;
+        margin-bottom: 0.35in;
+      }
+
+      .hero-proof img,
+      .book-proof img,
+      .coming-soon-proof img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid var(--line);
+      }
+
+      .section {
+        margin-bottom: 0.3in;
+        page-break-inside: avoid;
+      }
+
+      .section h2 {
+        font-size: 16pt;
+        margin-bottom: 0.12in;
+        color: var(--ink);
+      }
+
+      .eyebrow {
+        margin: 0 0 0.08in;
+        color: var(--accent);
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .book-copy h3 {
+        font-size: 18pt;
+        margin-bottom: 0.08in;
+      }
+
+      .purchase-list,
+      .theme-list {
+        margin: 0.12in 0 0;
+        padding-left: 0.22in;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.15in;
+      }
+
+      .card {
+        padding: 0.16in;
+        border: 1px solid var(--line);
+      }
+
+      .card h3,
+      .quote {
+        margin: 0 0 0.08in;
+        color: var(--ink);
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 11pt;
+      }
+
+      .quote {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-style: italic;
+        line-height: 1.45;
+      }
+
+      .small {
+        font-size: 10pt;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .page {
+          margin: 0;
+          width: auto;
+          min-height: auto;
+          padding: 0.45in;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="proof-header">
+        <h1>Travis Serna Website Proof</h1>
+        <p>
+          Print-friendly proof of the current author website layout for review.
+        </p>
+        <p class="meta">Prepared April 26, 2026</p>
+      </header>
+
+      <section class="section">
+        <p class="eyebrow">Hero</p>
+        <div class="hero-proof">
+          <div>
+            <h2>Breaking the stigma and facing the truth.</h2>
+            <p>
+              Travis Serna brings a steady, faith-rooted voice to the
+              conversation around anxiety, strength, and emotional honesty.
+            </p>
+            <p class="small">
+              Primary navigation includes The Book, Coming Soon, Blog, Reviews,
+              The Author, and The Message plus Instagram and Facebook icon links.
+            </p>
+          </div>
+          <img
+            src="assets/travis-serna.jpg"
+            alt="Portrait of Travis Serna"
+          />
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Featured Book</p>
+        <div class="book-proof">
+          <img
+            src="assets/book-cover.png"
+            alt="Book cover for Anxiety? Not Me!"
+          />
+          <div class="book-copy">
+            <h3>Anxiety? Not Me!</h3>
+            <p>
+              Honest. Encouraging. Faith rooted. The featured book section
+              includes the current cover, descriptive copy, retailer button
+              placeholders, and theme callouts.
+            </p>
+            <ul class="purchase-list">
+              <li>Buy on Apple Books</li>
+              <li>Buy on Amazon</li>
+              <li>Buy on Barnes &amp; Noble</li>
+            </ul>
+            <ul class="theme-list">
+              <li>Real Perspective</li>
+              <li>Faith and Courage</li>
+              <li>Breaking Stigma</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Reader Praise</p>
+        <h2>What readers are saying.</h2>
+        <div class="cards">
+          <div class="card">
+            <p class="quote">
+              “A courageous and compassionate book that speaks to the hidden
+              weight so many people carry in silence.”
+            </p>
+            <p class="small">Review placeholder</p>
+          </div>
+          <div class="card">
+            <p class="quote">
+              “Travis Serna brings honesty, faith, and practical hope to a
+              conversation many people still struggle to begin.”
+            </p>
+            <p class="small">Review placeholder</p>
+          </div>
+          <div class="card">
+            <p class="quote">
+              “This message reminds readers that strength is not pretending to
+              be fine, but choosing truth and courage.”
+            </p>
+            <p class="small">Review placeholder</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Blog</p>
+        <h2>Encouragement for the journey.</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>When strength looks quiet</h3>
+            <p class="small">
+              Reflection on how pain often hides behind responsibility and the
+              pressure to keep going.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Faith, honesty, and hard conversations</h3>
+            <p class="small">
+              Thoughts on creating room for truthful conversations about
+              anxiety, fear, and healing.
+            </p>
+          </div>
+          <div class="card">
+            <h3>You do not have to carry it alone</h3>
+            <p class="small">
+              Encouragement that asking for help can be an act of courage.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Message</p>
+        <h2>Truth over silence. Hope over shame.</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Anxiety can hide behind strength</h3>
+          </div>
+          <div class="card">
+            <h3>Honesty is part of healing</h3>
+          </div>
+          <div class="card">
+            <h3>Faith makes room for real conversations</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Author</p>
+        <h2>Meet Travis Serna</h2>
+        <p>
+          Travis Serna writes with candor, conviction, and compassion. His work
+          invites people to reject stigma, embrace vulnerability, and remember
+          that anxiety does not get the final word.
+        </p>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Coming Soon</p>
+        <div class="coming-soon-proof">
+          <img
+            src="assets/depression-not-me-coming-soon.png"
+            alt="Coming soon book cover for Depression? Not Me!"
+          />
+          <div class="book-copy">
+            <h3>Depression? Not Me!</h3>
+            <p>
+              Upcoming release teaser highlighting hope, healing, purpose,
+              freedom, joy, peace, and a new life.
+            </p>
+            <p class="small">
+              Area reserved for launch date, preorder links, and announcement
+              details.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

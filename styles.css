@@ -1,0 +1,789 @@
+:root {
+  --bg: #09141e;
+  --bg-soft: #0f2230;
+  --panel: rgba(7, 18, 27, 0.78);
+  --panel-strong: #102534;
+  --text: #f3ecde;
+  --muted: #b8c4cf;
+  --gold: #f2aa1f;
+  --gold-deep: #c67b00;
+  --line: rgba(255, 255, 255, 0.12);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia,
+    serif;
+  background:
+    radial-gradient(circle at top left, rgba(242, 170, 31, 0.2), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(111, 140, 164, 0.18), transparent 20%),
+    linear-gradient(180deg, #102837 0%, #09141e 50%, #071017 100%);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 82%);
+}
+
+.site-header,
+main,
+.site-footer {
+  width: min(1160px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 0 0.4rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(16px);
+}
+
+.brand,
+.site-nav a,
+.eyebrow,
+.button,
+.book-tagline,
+.card-number,
+.author-highlight h3 {
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.brand {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  text-decoration: none;
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: 2.9rem;
+  height: 2.9rem;
+  padding: 0;
+  border: 1px solid rgba(242, 170, 31, 0.26);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.social-links svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--gold);
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  color: #08121a;
+  border-color: #ffd27a;
+  background: linear-gradient(135deg, #f7bf46, #df8d0a);
+  transform: translateY(-2px);
+}
+
+.hero,
+.featured-book,
+.coming-soon-section,
+.blog-section,
+.reviews-section,
+.message-section,
+.author-section {
+  padding: 4.5rem 0;
+}
+
+.hero {
+  min-height: calc(100vh - 4rem);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: 0.88rem;
+  margin: 0 0 0.8rem;
+}
+
+h1,
+h2,
+h3,
+.button {
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  line-height: 0.95;
+}
+
+h1 {
+  font-size: clamp(3.4rem, 7vw, 7rem);
+  max-width: 11ch;
+}
+
+h2 {
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  max-width: 12ch;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.65rem;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.hero-text {
+  max-width: 34rem;
+  font-size: 1.15rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: #08121a;
+  background: linear-gradient(135deg, #f7bf46, #df8d0a);
+  box-shadow: 0 18px 35px rgba(224, 145, 12, 0.3);
+}
+
+.button-secondary {
+  color: var(--text);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portrait-frame {
+  position: relative;
+  width: min(30rem, 100%);
+  padding: 1rem;
+  border: 1px solid rgba(242, 170, 31, 0.35);
+  border-radius: 2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02)),
+    rgba(8, 18, 26, 0.6);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.portrait-frame::after {
+  content: "";
+  position: absolute;
+  inset: auto 1rem 1rem auto;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 170, 31, 0.28), transparent 72%);
+}
+
+.portrait-frame img,
+.book-cover-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.portrait-frame img {
+  border-radius: 1.3rem;
+}
+
+.quote-card {
+  position: absolute;
+  left: -1rem;
+  bottom: 1.8rem;
+  max-width: 16rem;
+  padding: 1rem 1.15rem;
+  border-left: 4px solid var(--gold);
+  background: rgba(7, 18, 27, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.quote-card p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.section-heading {
+  margin-bottom: 2rem;
+}
+
+.book-grid,
+.author-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.coming-soon-panel {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid rgba(242, 170, 31, 0.24);
+  border-radius: 1.8rem;
+  background:
+    linear-gradient(180deg, rgba(242, 170, 31, 0.06), rgba(255, 255, 255, 0.02)),
+    rgba(7, 18, 27, 0.8);
+  box-shadow: var(--shadow);
+}
+
+.coming-soon-cover {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.coming-soon-cover img {
+  width: min(12.5rem, 100%);
+  border-radius: 1.4rem;
+  border: 1px solid rgba(242, 170, 31, 0.35);
+  box-shadow: var(--shadow);
+  display: block;
+  height: auto;
+}
+
+.coming-soon-tag {
+  margin: 0 0 0.7rem;
+  color: var(--gold);
+  font-size: 0.92rem;
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.coming-soon-copy h3 {
+  margin-bottom: 0.8rem;
+}
+
+.coming-soon-copy p:last-of-type {
+  margin-bottom: 1.6rem;
+}
+
+.book-cover-panel,
+.author-highlight,
+.message-card,
+.point-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.book-cover-panel {
+  border-radius: 1.8rem;
+  padding: 1rem;
+}
+
+.book-cover-panel img {
+  border-radius: 1.15rem;
+}
+
+.book-tagline {
+  margin: 0 0 0.7rem;
+  color: var(--gold);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.buy-panel {
+  position: relative;
+  margin: 1.7rem 0 0.4rem;
+  padding: 1.2rem;
+  border: 1px solid rgba(242, 170, 31, 0.28);
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(180deg, rgba(242, 170, 31, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.02);
+}
+
+.buy-label {
+  margin: 0 0 0.9rem;
+  color: var(--text);
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.buy-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.35rem;
+  background: rgba(7, 18, 27, 0.68);
+  backdrop-filter: blur(3px);
+  z-index: 2;
+}
+
+.buy-overlay span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.15rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7bf46, #df8d0a);
+  color: #08121a;
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 18px 28px rgba(224, 145, 12, 0.24);
+}
+
+.retailer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.retailer-link,
+.text-link {
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.retailer-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 999px;
+  color: #08121a;
+  border: 1px solid rgba(242, 170, 31, 0.6);
+  background: linear-gradient(135deg, #f7bf46, #df8d0a);
+  box-shadow: 0 18px 28px rgba(224, 145, 12, 0.22);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.retailer-link:hover,
+.retailer-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: #ffd27a;
+  background: linear-gradient(135deg, #ffd27a, #ee9d15);
+  box-shadow: 0 22px 32px rgba(224, 145, 12, 0.3);
+}
+
+.points-grid,
+.message-grid,
+.blog-grid,
+.reviews-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.points-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.point-card,
+.message-card,
+.author-highlight,
+.blog-card {
+  border-radius: 1.35rem;
+  padding: 1.3rem;
+}
+
+.point-card p,
+.message-card p,
+.author-highlight li,
+.blog-card p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.message-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.blog-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.reviews-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.blog-card {
+  background: linear-gradient(
+      180deg,
+      rgba(242, 170, 31, 0.05),
+      rgba(255, 255, 255, 0.02)
+    ),
+    var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.blog-meta {
+  margin-bottom: 0.9rem;
+  color: var(--gold);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--gold);
+  font-size: 0.9rem;
+}
+
+.blog-index-link {
+  margin-top: 1.25rem;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  color: #ffd27a;
+}
+
+.review-card {
+  min-height: 100%;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(242, 170, 31, 0.24);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(7, 18, 27, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.review-quote {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+.review-source {
+  margin: 1.2rem 0 0;
+  color: var(--gold);
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-number {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.author-copy p:first-child,
+.book-details p:first-child {
+  margin-top: 0;
+}
+
+.author-highlight ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.site-footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.social-links-footer a {
+  font-size: 0.8rem;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.post-shell {
+  padding: 3rem 0 4rem;
+}
+
+.post-wrap {
+  width: min(860px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.post-back {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.post-hero,
+.post-body,
+.post-aside {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.post-hero {
+  padding: 2rem;
+  border-radius: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-meta {
+  margin: 0 0 0.8rem;
+  color: var(--gold);
+  font-family: "Avenir Next Condensed", "Franklin Gothic Medium", "Arial Narrow",
+    sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.post-dek {
+  max-width: 42rem;
+  font-size: 1.16rem;
+}
+
+.post-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.post-body,
+.post-aside {
+  border-radius: 1.6rem;
+  padding: 1.6rem;
+}
+
+.post-body p {
+  margin: 0 0 1.1rem;
+}
+
+.post-body h2 {
+  margin: 2rem 0 1rem;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  max-width: none;
+}
+
+.post-body blockquote {
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--gold);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.post-aside h3 {
+  margin-bottom: 0.9rem;
+}
+
+.post-aside ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+@media (max-width: 960px) {
+  .hero,
+  .book-grid,
+  .coming-soon-panel,
+  .post-layout,
+  .author-layout,
+  .message-grid,
+  .points-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 3rem;
+  }
+
+  .quote-card {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    margin-top: 1rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-top: 1rem;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-links,
+  .footer-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  h1 {
+    max-width: none;
+  }
+
+  h2 {
+    max-width: none;
+  }
+
+  .hero,
+  .featured-book,
+  .coming-soon-section,
+  .blog-section,
+  .reviews-section,
+  .message-section,
+  .author-section {
+    padding: 3.5rem 0;
+  }
+}

@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+npm-debug.log*
+
+# Local scratch or failed exports
+travis-serna-website-proof.pdf
