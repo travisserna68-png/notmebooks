@@ -243,6 +243,7 @@ async function main() {
 
   const files = (await fs.readdir(contentDir)).filter((file) => file.endsWith(".md"));
   const posts = [];
+  const now = new Date();
 
   for (const file of files) {
     const fullPath = path.join(contentDir, file);
@@ -251,17 +252,32 @@ async function main() {
     const slug = slugify(path.basename(file, ".md"));
     const html = markdownToHtml(body);
 
-    posts.push({
+    const publishDate = new Date(meta.date || "");
+
+    if (Number.isNaN(publishDate.getTime())) {
+      throw new Error(`${file} has an invalid or missing publish date.`);
+    }
+
+    const post = {
       slug,
       title: meta.title || path.basename(file, ".md"),
       excerpt: meta.excerpt || "",
-      date: meta.date || "",
-      displayDate: formatDisplayDate(meta.date || Date.now()),
+      date: meta.date,
+      publishDate,
+      displayDate: formatDisplayDate(meta.date),
       html,
-    });
+    };
+
+    if (publishDate <= now) {
+      posts.push(post);
+    } else {
+      // Remove an older generated copy if a post is rescheduled into the future.
+      await fs.rm(path.join(blogDir, slug), { recursive: true, force: true });
+      await fs.rm(path.join(blogDir, `${slug}.html`), { force: true });
+    }
   }
 
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  posts.sort((a, b) => b.publishDate - a.publishDate);
 
   for (const post of posts) {
     const postDir = path.join(blogDir, post.slug);
